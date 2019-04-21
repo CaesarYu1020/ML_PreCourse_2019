@@ -7,6 +7,7 @@ import pandas as pd
 def drawFeatures():
     boston = load_boston()
     boston_data = pd.DataFrame(boston.data, columns=boston.feature_names)
+
     y = boston.target
     plt.figure('各特徵與價錢關係')
     t=1;
@@ -31,7 +32,7 @@ def linearTest(x, y,draw=False):
     plt.figure('預測與實際結果對照')
     plt.scatter(x, y, s=20)
     for idx, m in enumerate(x):
-        plt.plot([m, m], [y[idx], pre[idx]], 'g-',linewidth=1)
+        plt.plot([m, m], [y[idx], pre[idx]], 'g-',linewidth=1) # x,y and x,pre 截距
     plt.plot(x, pre, "r-", linewidth=3)
     plt.xlabel('RM')
     plt.ylabel('Price')
